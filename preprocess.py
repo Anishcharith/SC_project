@@ -2,9 +2,9 @@ import csv
 import numpy as np
 
 from sklearn import preprocessing
-from sklearn.model_selection import train_test_split
 
 path = "Dataset/"
+savepath = "Temp/"
 
 data_raw = [];
 
@@ -37,5 +37,5 @@ x_data = preprocessing.scale(x_data)
 
 x_data = np.column_stack((date, x_data))
 
-np.save("Temp/x_data.npy",x_data)
-np.save("Temp/y_data.npy",y_data)
+np.save(savepath+"x_data.npy",x_data)
+np.save(savepath+"y_data.npy",y_data)
