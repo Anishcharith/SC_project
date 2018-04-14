@@ -25,6 +25,8 @@ print(parsed.head())
 parsed.to_csv('k_Dia_19.csv',sep=',')
 '''
 
+path = "Dataset/"
+
 xls_data=pd.ExcelFile("COUNT DETAILS 40s -velmurugan for feature selection.xls")
 sheet2=xls_data.parse('k Dia 23')
 parsed=pd.DataFrame()
@@ -46,4 +48,4 @@ parsed.insert(4,'GG',np.zeros(len(parsed))+gg)
 parsed.insert(5,'TPI',np.zeros(len(parsed))+tpi)
 parsed.insert(6,'No of Needles',np.zeros(len(parsed))+noneedles)
 print(parsed.head())
-parsed.to_csv('k_Dia_23.csv',sep=',')
+parsed.to_csv(path+'k_Dia_23.csv',sep=',')
