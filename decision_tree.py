@@ -6,6 +6,8 @@ from sklearn.decomposition import PCA
 
 from sklearn.metrics import mean_squared_error, r2_score
 
+from	sklearn.tree	import	export_graphviz
+
 
 path = "Temp/"
 
@@ -17,9 +19,24 @@ y_data = np.load(path+"y_data.npy")
 x_train, x_test, y_train, y_test = train_test_split(x_data, y_data, test_size=0.33)
 
 
-clf = DecisionTreeRegressor()
+clf = DecisionTreeRegressor(max_depth=5)
 
 clf.fit(x_train, y_train)
+
+
+
+features = ["DATE", "COUNT", "ACT-COUNT", "WEIGHT", "STREN", "TM", "LL", "CPI", "WPI", "L", "W"]
+label = ["Fabric-width"]
+
+export_graphviz(
+				clf,
+				#out_file='/home/internet/Desktop/projects/sc_project/tree.dot',
+				out_file='tree.dot',
+				feature_names=features,
+				class_names=label,
+				rounded=True,
+				filled=True
+				)
 
 y_pred = clf.predict(x_test)
 print("No PCA")
