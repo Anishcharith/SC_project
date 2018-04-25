@@ -6,7 +6,7 @@ from sklearn.decomposition import PCA
 
 from sklearn.metrics import mean_squared_error, r2_score
 
-from	sklearn.tree	import	export_graphviz
+from sklearn.tree import export_graphviz
 
 
 path = "Temp/"

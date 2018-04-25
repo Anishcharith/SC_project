@@ -2,7 +2,6 @@ import csv
 import numpy as np
 
 from sklearn import preprocessing
-
 path = "Dataset/"
 savepath = "Temp/"
 
@@ -27,7 +26,7 @@ date = np.array([(np.datetime64(x) - min_date)*1.0/(max_date - min_date) for x i
 le = preprocessing.LabelEncoder()
 le.fit(data_raw[:,2])
 count = le.transform(data_raw[:,2])
-
+print(count)
 
 x_data = np.column_stack((count, np.float64(data_raw[:,4]), np.float64(data_raw[:,7:15])))
 y_data = np.float64(data_raw[:,-1])
@@ -37,5 +36,5 @@ x_data = preprocessing.scale(x_data)
 
 x_data = np.column_stack((date, x_data))
 
-np.save(savepath+"x_data.npy",x_data)
-np.save(savepath+"y_data.npy",y_data)
+np.save(savepath+"x_data_.npy",x_data)
+np.save(savepath+"y_data_.npy",y_data)
