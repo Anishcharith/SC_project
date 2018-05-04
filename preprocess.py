@@ -35,6 +35,11 @@ y_data = np.float64(data_raw[:,-1])
 x_data = preprocessing.scale(x_data)
 
 x_data = np.column_stack((date, x_data))
+column_names=['DATE','COUNT','K.Dia','No of Needles','ACT- COUNT','WEIGHT','STREN','TM','LL in mm','CPI','WPI']
+column_string=",".join(column_names )
+
+np.savetxt("x_data.csv",x_data,delimiter=',',header=column_string)
+np.savetxt("y_data.csv",y_data,delimiter=',',header="Fabric Width Inches")
 
 np.save(savepath+"x_data_.npy",x_data)
 np.save(savepath+"y_data_.npy",y_data)
